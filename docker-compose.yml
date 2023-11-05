@@ -7,6 +7,9 @@ services:
   redis:
     image: 'redis:latest'
   nginx:
+    depends_on:
+      - client
+      - api
     restart: always
     build: 
       dockerfile: Dockerfile.dev
@@ -16,10 +19,10 @@ services:
   api:
     build:
       dockerfile: Dockerfile.dev
-      context: ./api
+      context: ./server
     volumes:
       - /app/node_modules
-      - ./api:/app
+      - ./server:/app
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
