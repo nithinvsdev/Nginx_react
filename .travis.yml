@@ -15,9 +15,9 @@ after_success:
   - docker build -t nithinvs09/multi-server ./worker
 
 #login to docker cli
-  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push nithinvs09/multi-client
-  - docker push nithinvs09/multi-nginx
-  - docker push nithinvs09/multi-server
-  - docker push nithinvs09/multi-worker
+- docker push nithinvs09/multi-client
+- docker push nithinvs09/multi-nginx
+- docker push nithinvs09/multi-server
+- docker push nithinvs09/multi-worker
